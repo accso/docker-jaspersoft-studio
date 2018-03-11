@@ -17,9 +17,7 @@ RUN apt-get update \
 	   libxtst6 \
     && mkdir -p /opt \
     && echo "Downloading ${URL}" \
-    && curl -s -o /opt/${FILENAME} -L ${URL}
-
-RUN cd / \
+    && curl -s -o /opt/${FILENAME} -L ${URL} \
     && dpkg -i /opt/${FILENAME} \
     && apt-get install -f \
     && rm /opt/${FILENAME}
